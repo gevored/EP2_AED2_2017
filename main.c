@@ -2,9 +2,9 @@
 #include <stdlib.h>
 
 
-//leitura dos arquivos 
+//leitura dos arquivos
 void Leitura1() {
-	char url[] = "C:\\Users\\Gerson\\Desktop\\EP2_AED2\\entrada21.txt";
+	char url[] = "//home//gerson//Documents//entrada_ep2_aed2//entrada21.txt";
 	char ch;
 	FILE *arq;
 
@@ -19,7 +19,7 @@ void Leitura1() {
 				break;
 			}
 		}
-		
+
 	fclose(arq);
 }
 
