@@ -12,46 +12,46 @@
 };
 
  typedef struct  noTrie{
-
     char finalPalavra;
     char caracter;
-    char * teste;
+
     struct noTrie *noFilho[qtdAlfabeto];
     int qtdFilhos;
-
 };
+
 char *palavra;
+ struct  trie trieGlobal;
 
 void limpaPalavra(){
     strcpy( palavra, "" );
 }
 
-void InicializaTRIE(struct  trie trieNo){
+ void InicializaTRIE(){
    int i;
-   trieNo.qtdFilhos = 0;
+   trieGlobal.qtdFilhos = 0;
 
    for(i = 0; i<qtdAlfabeto ; i++){
-        trieNo.noFilho[i] = NULL;
+        trieGlobal.noFilho[i] = NULL;
    }
 }
 
 void inserirTRIE(char * vetorPalavra){
-    int i  = 0;
-    int j =0;
-    int qtd = strlen(vetorPalavra);
+char charTemp  = "";
+int j = 0;
+int contador = 0;
+int qtd = strlen(palavra);
 
 }
 
-    //leitura dos arquivos
-void Leitura1(struct  trie trieNo) {
+//leitura dos arquivos
+void Leitura1() {
 
-    InicializaTRIE(trieNo);
+    InicializaTRIE();
     palavra = (char*)malloc(tamMaxPalavra  * sizeof(char));
     int countWord = 0;
 	char url[] = "//home//gerson//Documents//entrada_ep2_aed2//entrada21.txt";
 	char ch;
 	FILE *arq;
-
 
 	arq = fopen(url, "r");
 	if (arq == NULL)
@@ -80,14 +80,12 @@ void Leitura1(struct  trie trieNo) {
 	fclose(arq);
 }
 
-void formaPalavra(char letra, int local){
+void formaPalavra(  char letra, int local){
     palavra[local] = letra;
 }
 
 void main(void) {
-
-   struct  trie trieInicial;
-	Leitura1(trieInicial);
+	Leitura1();
 	system("pause");
 
 }
