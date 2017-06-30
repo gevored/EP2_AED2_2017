@@ -17,9 +17,7 @@ char *palavra;
 struct  noTrie  *trieGlobal;
 char ** palavrasBusca;
 
-void limpaPalavra(){
-    strcpy( palavra, "" );
-}
+void busca
 
  void InicializaTRIE(){
    int i;
@@ -94,7 +92,10 @@ void LeituraTexto1() {
             if (ch == ' '){
                 inserirTRIE(palavra);
 
+                free(palavra);
+                palavra = (char*)malloc(tamMaxPalavra  * sizeof(char));
                 countWord = 0;
+                continue;
             }
         }
         countWord++;
@@ -107,8 +108,11 @@ void LeituraTexto1() {
         continue;
 
     case 3:
-        if (ch == '\n')
+        if (ch == '\n'){
+            free(palavra);
+            palavra = (char*)malloc(tamMaxPalavra  * sizeof(char));
             continue;
+            }
 
          if(ch != ' ' ){
             formaPalavra(ch, countWord);
@@ -116,10 +120,11 @@ void LeituraTexto1() {
             if (ch == ' '){
 
                 palavrasBusca[x] = palavra;
-                printf(palavra);
-                printf("\n");
+                free(palavra);
+                palavra = (char*)malloc(tamMaxPalavra  * sizeof(char));
                 x++;
                 countWord = 0;
+                continue;
             }
         }
         countWord++;
